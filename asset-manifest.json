@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/PawRx/static/css/main.e4087c36.css",
+    "main.js": "/PawRx/static/js/main.05360626.js",
+    "index.html": "/PawRx/index.html",
+    "main.e4087c36.css.map": "/PawRx/static/css/main.e4087c36.css.map",
+    "main.05360626.js.map": "/PawRx/static/js/main.05360626.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e4087c36.css",
+    "static/js/main.05360626.js"
+  ]
+}
