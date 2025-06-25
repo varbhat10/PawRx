@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/PawRx/static/css/main.e3de052a.css",
-    "main.js": "/PawRx/static/js/main.116d9670.js",
+    "main.js": "/PawRx/static/js/main.2870b47e.js",
     "index.html": "/PawRx/index.html",
     "main.e3de052a.css.map": "/PawRx/static/css/main.e3de052a.css.map",
-    "main.116d9670.js.map": "/PawRx/static/js/main.116d9670.js.map"
+    "main.2870b47e.js.map": "/PawRx/static/js/main.2870b47e.js.map"
   },
   "entrypoints": [
     "static/css/main.e3de052a.css",
-    "static/js/main.116d9670.js"
+    "static/js/main.2870b47e.js"
   ]
 }
