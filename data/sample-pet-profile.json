@@ -1,0 +1,106 @@
+{
+  "pet_id": "pet_12345",
+  "name": "Sophie",
+  "species": "cat",
+  "breed": "Siamese",
+  "weight": 10,
+  "weight_unit": "lbs",
+  "age": 10,
+  "age_unit": "years",
+  "sex": "male",
+  "neutered": true,
+  "owner_info": {
+    "name": "Varun Bhat",
+    "email": "varbhat10@email.com",
+    "phone": "+1-503-577-4228",
+    "address": {
+      "street": "123 Main St",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "97229"
+    }
+  },
+  "veterinarian": {
+    "name": "Dr. Bhat",
+    "clinic": "Sophies Veterinary Clinic",
+    "phone": "+1-503-577-4228",
+    "email": "varbhat10@gmail.com"
+  },
+  "medical_history": {
+    "allergies": ["Chicken", "Wheat gluten"],
+    "chronic_conditions": ["Hip dysplasia", "Seasonal allergies"],
+    "vaccinations": [
+      {
+        "vaccine": "DHPP",
+        "date": "2024-01-15",
+        "next_due": "2025-01-15"
+      },
+      {
+        "vaccine": "Rabies",
+        "date": "2024-01-15",
+        "next_due": "2027-01-15"
+      }
+    ]
+  },
+  "current_medications": [
+    {
+      "medication_id": "med_001",
+      "name": "Carprofen",
+      "brand_name": "Rimadyl",
+      "dosage": "75mg",
+      "frequency": "twice daily",
+      "route": "oral",
+      "start_date": "2024-01-01",
+      "end_date": null,
+      "prescribed_by": "Dr. Bhat",
+      "reason": "Hip dysplasia pain management",
+      "instructions": "Give with food",
+      "status": "active"
+    },
+    {
+      "medication_id": "med_002",
+      "name": "Apoquel",
+      "brand_name": "Apoquel",
+      "dosage": "16mg",
+      "frequency": "twice daily",
+      "route": "oral",
+      "start_date": "2024-03-15",
+      "end_date": null,
+      "prescribed_by": "Dr. Bhat",
+      "reason": "Seasonal allergies",
+      "instructions": "Can be given with or without food",
+      "status": "active"
+    }
+  ],
+  "adverse_reactions": [
+    {
+      "reaction_id": "rxn_001",
+      "medication": "Benadryl",
+      "date": "2023-08-15",
+      "severity": "mild",
+      "symptoms": ["Drowsiness", "Dry mouth"],
+      "duration": "24 hours",
+      "treatment": "Discontinued medication",
+      "notes": "Excessive sedation noted"
+    }
+  ],
+  "medication_history": [
+    {
+      "medication_id": "med_003",
+      "name": "Amoxicillin",
+      "brand_name": "Amoxicillin",
+      "dosage": "500mg",
+      "frequency": "twice daily",
+      "route": "oral",
+      "start_date": "2023-11-01",
+      "end_date": "2023-11-14",
+      "prescribed_by": "Dr. Bhat",
+      "reason": "Ear infection",
+      "status": "completed"
+    }
+  ],
+  "created_at": "2024-01-01T00:00:00Z",
+  "updated_at": "2024-03-15T10:30:00Z",
+  "last_checkup": "2024-03-15",
+  "next_checkup": "2024-09-15"
+} 

@@ -1,0 +1,98 @@
+{
+  "toxic_medications": {
+    "cats": [
+      {
+        "name": "Acetaminophen",
+        "brand_names": ["Tylenol", "Paracetamol"],
+        "toxicity_level": "high",
+        "symptoms": ["Vomiting", "Difficulty breathing", "Brown gums", "Lethargy"],
+        "description": "Extremely toxic to cats, can cause liver damage and death"
+      },
+      {
+        "name": "Aspirin",
+        "brand_names": ["Bayer", "Bufferin"],
+        "toxicity_level": "high",
+        "symptoms": ["Vomiting", "Loss of appetite", "Difficulty breathing", "Weakness"],
+        "description": "Cats cannot metabolize aspirin effectively"
+      },
+      {
+        "name": "Ibuprofen",
+        "brand_names": ["Advil", "Motrin"],
+        "toxicity_level": "high",
+        "symptoms": ["Vomiting", "Diarrhea", "Loss of appetite", "Kidney damage"],
+        "description": "NSAIDs are toxic to cats and can cause kidney failure"
+      },
+      {
+        "name": "Permethrin",
+        "brand_names": ["Advantix", "Vectra"],
+        "toxicity_level": "high",
+        "symptoms": ["Tremors", "Seizures", "Hyperthermia", "Difficulty walking"],
+        "description": "Common in dog flea treatments, extremely toxic to cats"
+      },
+      {
+        "name": "Xylitol",
+        "brand_names": ["Various sugar-free products"],
+        "toxicity_level": "medium",
+        "symptoms": ["Vomiting", "Loss of coordination", "Lethargy"],
+        "description": "Artificial sweetener toxic to cats"
+      }
+    ],
+    "dogs": [
+      {
+        "name": "Xylitol",
+        "brand_names": ["Various sugar-free products"],
+        "toxicity_level": "high",
+        "symptoms": ["Vomiting", "Loss of coordination", "Collapse", "Seizures"],
+        "description": "Artificial sweetener that causes rapid insulin release in dogs"
+      },
+      {
+        "name": "Chocolate (Theobromine)",
+        "brand_names": ["Various chocolate products"],
+        "toxicity_level": "high",
+        "symptoms": ["Vomiting", "Diarrhea", "Increased heart rate", "Seizures"],
+        "description": "Dark chocolate and baking chocolate are most toxic"
+      },
+      {
+        "name": "Grapes/Raisins",
+        "brand_names": ["Various food products"],
+        "toxicity_level": "high",
+        "symptoms": ["Vomiting", "Diarrhea", "Kidney failure", "Lethargy"],
+        "description": "Can cause severe kidney damage even in small amounts"
+      },
+      {
+        "name": "Ibuprofen",
+        "brand_names": ["Advil", "Motrin"],
+        "toxicity_level": "high",
+        "symptoms": ["Vomiting", "Diarrhea", "Kidney damage", "Stomach ulcers"],
+        "description": "NSAIDs can cause severe gastrointestinal and kidney damage"
+      },
+      {
+        "name": "Acetaminophen",
+        "brand_names": ["Tylenol"],
+        "toxicity_level": "medium",
+        "symptoms": ["Vomiting", "Difficulty breathing", "Liver damage"],
+        "description": "Less toxic than in cats but still dangerous"
+      }
+    ]
+  },
+  "drug_interactions": [
+    {
+      "drug1": "Warfarin",
+      "drug2": "Aspirin",
+      "risk_level": "high",
+      "description": "Increased bleeding risk"
+    },
+    {
+      "drug1": "Prednisone",
+      "drug2": "NSAIDs",
+      "risk_level": "high",
+      "description": "Increased risk of gastrointestinal ulcers"
+    },
+    {
+      "drug1": "Furosemide",
+      "drug2": "ACE Inhibitors",
+      "risk_level": "medium",
+      "description": "Monitor kidney function closely"
+    }
+  ]
+} 

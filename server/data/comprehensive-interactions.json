@@ -1,0 +1,372 @@
+{
+  "drug_interactions": [
+    {
+      "drug1": "carprofen",
+      "drug2": "prednisone",
+      "species": ["dog", "cat"],
+      "severity": "major",
+      "riskLevel": "high",
+      "mechanism": "Additive gastrointestinal toxicity and increased risk of ulceration",
+      "clinicalEffects": ["Gastrointestinal ulcers", "Bleeding", "Vomiting", "Diarrhea", "Melena"],
+      "management": "Avoid concurrent use. If absolutely necessary, use gastroprotectants and monitor closely",
+      "evidenceLevel": "established",
+      "alternatives": ["Tramadol", "Gabapentin", "Physical therapy"]
+    },
+    {
+      "drug1": "carprofen",
+      "drug2": "prednisolone",
+      "species": ["dog", "cat"],
+      "severity": "major",
+      "riskLevel": "high",
+      "mechanism": "Additive gastrointestinal toxicity and increased risk of ulceration",
+      "clinicalEffects": ["Gastrointestinal ulcers", "Bleeding", "Vomiting", "Diarrhea", "Melena"],
+      "management": "Avoid concurrent use. If absolutely necessary, use gastroprotectants and monitor closely",
+      "evidenceLevel": "established",
+      "alternatives": ["Tramadol", "Gabapentin", "Physical therapy"]
+    },
+    {
+      "drug1": "meloxicam",
+      "drug2": "aspirin",
+      "species": ["dog", "cat"],
+      "severity": "major",
+      "riskLevel": "high",
+      "mechanism": "Dual COX inhibition leading to severe GI and renal toxicity",
+      "clinicalEffects": ["Severe GI ulceration", "Renal failure", "Bleeding disorders"],
+      "management": "Contraindicated - do not use together",
+      "evidenceLevel": "established",
+      "alternatives": ["Use only one NSAID at a time"]
+    },
+    {
+      "drug1": "meloxicam",
+      "drug2": "prednisone",
+      "species": ["dog", "cat"],
+      "severity": "major",
+      "riskLevel": "high",
+      "mechanism": "Additive gastrointestinal toxicity and increased risk of ulceration",
+      "clinicalEffects": ["Gastrointestinal ulcers", "Bleeding", "Vomiting", "Diarrhea", "Melena"],
+      "management": "Avoid concurrent use. If absolutely necessary, use gastroprotectants and monitor closely",
+      "evidenceLevel": "established",
+      "alternatives": ["Tramadol", "Gabapentin", "Physical therapy"]
+    },
+    {
+      "drug1": "meloxicam",
+      "drug2": "prednisolone",
+      "species": ["dog", "cat"],
+      "severity": "major",
+      "riskLevel": "high",
+      "mechanism": "Additive gastrointestinal toxicity and increased risk of ulceration",
+      "clinicalEffects": ["Gastrointestinal ulcers", "Bleeding", "Vomiting", "Diarrhea", "Melena"],
+      "management": "Avoid concurrent use. If absolutely necessary, use gastroprotectants and monitor closely",
+      "evidenceLevel": "established",
+      "alternatives": ["Tramadol", "Gabapentin", "Physical therapy"]
+    },
+    {
+      "drug1": "furosemide",
+      "drug2": "enalapril",
+      "species": ["dog", "cat"],
+      "severity": "moderate",
+      "riskLevel": "medium",
+      "mechanism": "Additive hypotensive and renal effects",
+      "clinicalEffects": ["Hypotension", "Azotemia", "Electrolyte imbalances"],
+      "management": "Monitor kidney function, blood pressure, and electrolytes closely. Adjust doses as needed",
+      "evidenceLevel": "established",
+      "alternatives": []
+    },
+    {
+      "drug1": "phenobarbital",
+      "drug2": "chloramphenicol",
+      "species": ["dog", "cat"],
+      "severity": "major",
+      "riskLevel": "high",
+      "mechanism": "Chloramphenicol inhibits phenobarbital metabolism, leading to toxicity",
+      "clinicalEffects": ["Phenobarbital toxicity", "Severe sedation", "Ataxia", "Respiratory depression"],
+      "management": "Avoid concurrent use. If necessary, reduce phenobarbital dose by 50% and monitor levels",
+      "evidenceLevel": "established",
+      "alternatives": ["Enrofloxacin", "Clindamycin", "Doxycycline"]
+    },
+    {
+      "drug1": "digoxin",
+      "drug2": "furosemide",
+      "species": ["dog", "cat"],
+      "severity": "moderate",
+      "riskLevel": "medium",
+      "mechanism": "Furosemide-induced hypokalemia increases digoxin toxicity risk",
+      "clinicalEffects": ["Digoxin toxicity", "Cardiac arrhythmias", "Vomiting", "Diarrhea"],
+      "management": "Monitor potassium levels and supplement as needed. Monitor for signs of digoxin toxicity",
+      "evidenceLevel": "established",
+      "alternatives": []
+    },
+    {
+      "drug1": "metronidazole",
+      "drug2": "phenytoin",
+      "species": ["dog"],
+      "severity": "moderate",
+      "riskLevel": "medium",
+      "mechanism": "Metronidazole inhibits phenytoin metabolism",
+      "clinicalEffects": ["Phenytoin toxicity", "Ataxia", "Sedation", "Confusion"],
+      "management": "Monitor phenytoin levels and adjust dose. Watch for neurologic signs",
+      "evidenceLevel": "established",
+      "alternatives": ["Clindamycin", "Amoxicillin-clavulanate"]
+    },
+    {
+      "drug1": "tramadol",
+      "drug2": "fluoxetine",
+      "species": ["dog", "cat"],
+      "severity": "major",
+      "riskLevel": "high",
+      "mechanism": "Increased risk of serotonin syndrome",
+      "clinicalEffects": ["Serotonin syndrome", "Hyperthermia", "Agitation", "Tremors", "Seizures"],
+      "management": "Avoid concurrent use. If necessary, use lowest effective doses and monitor closely",
+      "evidenceLevel": "established",
+      "alternatives": ["Gabapentin", "Carprofen", "Buprenorphine"]
+    },
+    {
+      "drug1": "insulin",
+      "drug2": "prednisone",
+      "species": ["dog", "cat"],
+      "severity": "moderate",
+      "riskLevel": "medium",
+      "mechanism": "Corticosteroids antagonize insulin effects",
+      "clinicalEffects": ["Hyperglycemia", "Diabetic ketoacidosis", "Poor glycemic control"],
+      "management": "Increase insulin dose and monitor blood glucose frequently. Consider alternative anti-inflammatory",
+      "evidenceLevel": "established",
+      "alternatives": ["NSAIDs (if appropriate)", "Localized treatments"]
+    },
+    {
+      "drug1": "warfarin",
+      "drug2": "metronidazole",
+      "species": ["dog", "cat"],
+      "severity": "major",
+      "riskLevel": "high",
+      "mechanism": "Metronidazole enhances warfarin anticoagulant effect",
+      "clinicalEffects": ["Excessive bleeding", "Prolonged coagulation times", "Hemorrhage"],
+      "management": "Monitor PT/PTT closely. Reduce warfarin dose. Consider alternative antibiotic",
+      "evidenceLevel": "established",
+      "alternatives": ["Clindamycin", "Amoxicillin"]
+    },
+    {
+      "drug1": "theophylline",
+      "drug2": "enrofloxacin",
+      "species": ["dog", "cat"],
+      "severity": "moderate",
+      "riskLevel": "medium",
+      "mechanism": "Enrofloxacin inhibits theophylline metabolism",
+      "clinicalEffects": ["Theophylline toxicity", "Vomiting", "Diarrhea", "Seizures", "Cardiac arrhythmias"],
+      "management": "Reduce theophylline dose by 30-50%. Monitor theophylline levels",
+      "evidenceLevel": "established",
+      "alternatives": ["Doxycycline", "Clindamycin"]
+    },
+    {
+      "drug1": "cyclosporine",
+      "drug2": "ketoconazole",
+      "species": ["dog", "cat"],
+      "severity": "major",
+      "riskLevel": "high",
+      "mechanism": "Ketoconazole significantly increases cyclosporine levels",
+      "clinicalEffects": ["Cyclosporine toxicity", "Nephrotoxicity", "Hepatotoxicity", "GI upset"],
+      "management": "Reduce cyclosporine dose by 75%. Monitor blood levels closely",
+      "evidenceLevel": "established",
+      "alternatives": ["Itraconazole (but still requires monitoring)", "Topical antifungals"]
+    },
+    {
+      "drug1": "cisapride",
+      "drug2": "ketoconazole",
+      "species": ["dog", "cat"],
+      "severity": "major",
+      "riskLevel": "critical",
+      "mechanism": "Ketoconazole inhibits cisapride metabolism, causing dangerous arrhythmias",
+      "clinicalEffects": ["QT prolongation", "Torsades de pointes", "Sudden death"],
+      "management": "Contraindicated - do not use together",
+      "evidenceLevel": "established",
+      "alternatives": ["Metoclopramide", "Domperidone"]
+    },
+    {
+      "drug1": "carprofen",
+      "drug2": "phenobarbital",
+      "species": ["dog"],
+      "severity": "minor",
+      "riskLevel": "low",
+      "mechanism": "Phenobarbital may slightly increase carprofen metabolism",
+      "clinicalEffects": ["Slightly reduced carprofen efficacy"],
+      "management": "Monitor for reduced anti-inflammatory effect. May need slight dose adjustment",
+      "evidenceLevel": "theoretical",
+      "alternatives": []
+    },
+    {
+      "drug1": "omeprazole",
+      "drug2": "ketoconazole",
+      "species": ["dog", "cat"],
+      "severity": "moderate",
+      "riskLevel": "medium",
+      "mechanism": "Omeprazole reduces gastric acid, decreasing ketoconazole absorption",
+      "clinicalEffects": ["Reduced antifungal efficacy", "Treatment failure"],
+      "management": "Separate administration by 2-3 hours or use alternative antifungal",
+      "evidenceLevel": "established",
+      "alternatives": ["Itraconazole", "Fluconazole"]
+    },
+    {
+      "drug1": "doxycycline",
+      "drug2": "sucralfate",
+      "species": ["dog", "cat"],
+      "severity": "moderate",
+      "riskLevel": "medium",
+      "mechanism": "Sucralfate binds to doxycycline, reducing absorption",
+      "clinicalEffects": ["Reduced antibiotic efficacy", "Treatment failure"],
+      "management": "Separate administration by at least 2 hours",
+      "evidenceLevel": "established",
+      "alternatives": []
+    },
+    {
+      "drug1": "terbutaline",
+      "drug2": "propranolol",
+      "species": ["dog", "cat"],
+      "severity": "major",
+      "riskLevel": "high",
+      "mechanism": "Beta-blocker antagonizes beta-agonist effects",
+      "clinicalEffects": ["Severe bronchoconstriction", "Respiratory distress", "Potential fatality"],
+      "management": "Contraindicated in patients with respiratory disease. Use cardioselective beta-blockers if needed",
+      "evidenceLevel": "established",
+      "alternatives": ["Atenolol (cardioselective)", "ACE inhibitors"]
+    }
+  ],
+  "toxic_medications": {
+    "dog": [
+      {
+        "name": "acetaminophen",
+        "brand_names": ["tylenol", "paracetamol"],
+        "toxicity_level": "severe",
+        "reason": "Hepatotoxicity and methemoglobinemia",
+        "symptoms": ["Vomiting", "Facial swelling", "Brown gums", "Difficulty breathing", "Liver failure"],
+        "safe_dose": "none",
+        "lethal_dose": "150mg/kg"
+      },
+      {
+        "name": "ibuprofen",
+        "brand_names": ["advil", "motrin"],
+        "toxicity_level": "severe",
+        "reason": "Gastrointestinal ulceration and kidney damage",
+        "symptoms": ["Vomiting", "Diarrhea", "Loss of appetite", "Abdominal pain", "Kidney failure"],
+        "safe_dose": "none",
+        "lethal_dose": "100-200mg/kg"
+      },
+      {
+        "name": "naproxen",
+        "brand_names": ["aleve", "naprosyn"],
+        "toxicity_level": "severe",
+        "reason": "More potent and longer-lasting than ibuprofen toxicity",
+        "symptoms": ["Severe GI ulceration", "Kidney failure", "Neurological signs"],
+        "safe_dose": "none",
+        "lethal_dose": "25mg/kg"
+      },
+      {
+        "name": "xylitol",
+        "brand_names": ["artificial sweetener"],
+        "toxicity_level": "critical",
+        "reason": "Rapid insulin release causing severe hypoglycemia",
+        "symptoms": ["Vomiting", "Weakness", "Incoordination", "Collapse", "Seizures", "Liver failure"],
+        "safe_dose": "none",
+        "lethal_dose": "0.1g/kg"
+      },
+      {
+        "name": "grapes",
+        "brand_names": ["raisins"],
+        "toxicity_level": "severe",
+        "reason": "Unknown mechanism causing acute kidney failure",
+        "symptoms": ["Vomiting", "Diarrhea", "Lethargy", "Decreased urination", "Kidney failure"],
+        "safe_dose": "none",
+        "lethal_dose": "unknown - any amount potentially toxic"
+      },
+      {
+        "name": "chocolate",
+        "brand_names": ["theobromine", "caffeine"],
+        "toxicity_level": "moderate_to_severe",
+        "reason": "Methylxanthine toxicity affecting cardiovascular and nervous systems",
+        "symptoms": ["Vomiting", "Diarrhea", "Increased heart rate", "Seizures", "Hyperthermia"],
+        "safe_dose": "none",
+        "lethal_dose": "100-200mg/kg theobromine"
+      }
+    ],
+    "cat": [
+      {
+        "name": "acetaminophen",
+        "brand_names": ["tylenol", "paracetamol"],
+        "toxicity_level": "critical",
+        "reason": "Cats lack enzyme to metabolize acetaminophen - causes severe methemoglobinemia",
+        "symptoms": ["Brown gums", "Difficulty breathing", "Facial swelling", "Liver damage", "Death"],
+        "safe_dose": "none",
+        "lethal_dose": "10mg/kg"
+      },
+      {
+        "name": "ibuprofen",
+        "brand_names": ["advil", "motrin"],
+        "toxicity_level": "severe",
+        "reason": "Extreme sensitivity to NSAIDs",
+        "symptoms": ["Vomiting", "Diarrhea", "Kidney failure", "Neurological signs"],
+        "safe_dose": "none",
+        "lethal_dose": "50mg/kg"
+      },
+      {
+        "name": "aspirin",
+        "brand_names": ["acetylsalicylic acid"],
+        "toxicity_level": "severe",
+        "reason": "Slow metabolism leads to accumulation and toxicity",
+        "symptoms": ["Vomiting", "Respiratory alkalosis", "Hyperthermia", "Liver damage"],
+        "safe_dose": "none - extremely limited veterinary use only",
+        "lethal_dose": "22mg/kg"
+      },
+      {
+        "name": "permethrin",
+        "brand_names": ["dog flea products"],
+        "toxicity_level": "critical",
+        "reason": "Cats cannot metabolize permethrin",
+        "symptoms": ["Muscle tremors", "Hyperthermia", "Seizures", "Death"],
+        "safe_dose": "none",
+        "lethal_dose": "very small amounts"
+      },
+      {
+        "name": "lilies",
+        "brand_names": ["easter lily", "tiger lily", "day lily"],
+        "toxicity_level": "critical",
+        "reason": "All parts of the plant cause acute kidney failure",
+        "symptoms": ["Vomiting", "Lethargy", "Kidney failure", "Death"],
+        "safe_dose": "none",
+        "lethal_dose": "any amount"
+      },
+      {
+        "name": "onions",
+        "brand_names": ["garlic", "chives"],
+        "toxicity_level": "severe",
+        "reason": "Causes hemolytic anemia",
+        "symptoms": ["Weakness", "Pale gums", "Rapid breathing", "Dark urine"],
+        "safe_dose": "none",
+        "lethal_dose": "5g/kg"
+      }
+    ]
+  },
+  "species_specific_warnings": {
+    "dog": [
+      {
+        "medication": "NSAIDs",
+        "warning": "Monitor for GI and kidney side effects. Always give with food",
+        "monitoring": ["Kidney function", "Complete blood count", "GI symptoms"]
+      },
+      {
+        "medication": "Phenobarbital",
+        "warning": "Monitor liver function. Drug levels needed for optimal dosing",
+        "monitoring": ["Liver enzymes", "Phenobarbital levels", "CBC"]
+      }
+    ],
+    "cat": [
+      {
+        "medication": "NSAIDs",
+        "warning": "Extreme caution - cats are very sensitive. Use only veterinary-approved NSAIDs",
+        "monitoring": ["Kidney function", "Liver function", "GI symptoms", "Neurological signs"]
+      },
+      {
+        "medication": "Antibiotics",
+        "warning": "Some antibiotics like clindamycin can cause serious diarrhea",
+        "monitoring": ["GI symptoms", "Appetite", "Hydration status"]
+      }
+    ]
+  }
+} 

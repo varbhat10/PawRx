@@ -1,0 +1,62 @@
+{
+  "common_medications": {
+    "dogs": [
+      {
+        "name": "Carprofen",
+        "brand_names": ["Rimadyl", "Novox", "Vetprofen"],
+        "category": "NSAID",
+        "common_uses": ["Arthritis", "Post-surgical pain", "Inflammation"],
+        "typical_dosage": "2-4 mg/kg twice daily",
+        "side_effects": ["Vomiting", "Diarrhea", "Loss of appetite"],
+        "contraindications": ["Kidney disease", "Liver disease", "Bleeding disorders"]
+      },
+      {
+        "name": "Apoquel",
+        "brand_names": ["Apoquel"],
+        "category": "Immunosuppressant",
+        "common_uses": ["Allergic dermatitis", "Atopic dermatitis"],
+        "typical_dosage": "0.4-0.6 mg/kg twice daily",
+        "side_effects": ["Vomiting", "Diarrhea", "Lethargy"],
+        "contraindications": ["Pregnancy", "Nursing", "Immunocompromised pets"]
+      },
+      {
+        "name": "Tramadol",
+        "brand_names": ["Ultram", "ConZip"],
+        "category": "Opioid analgesic",
+        "common_uses": ["Moderate to severe pain", "Post-surgical pain"],
+        "typical_dosage": "2-5 mg/kg every 8-12 hours",
+        "side_effects": ["Sedation", "Nausea", "Constipation"],
+        "contraindications": ["Seizure disorders", "MAO inhibitor use"]
+      }
+    ],
+    "cats": [
+      {
+        "name": "Meloxicam",
+        "brand_names": ["Metacam"],
+        "category": "NSAID",
+        "common_uses": ["Post-surgical pain", "Arthritis"],
+        "typical_dosage": "0.05 mg/kg once daily",
+        "side_effects": ["Vomiting", "Diarrhea", "Kidney issues"],
+        "contraindications": ["Kidney disease", "Dehydration", "Heart disease"]
+      },
+      {
+        "name": "Gabapentin",
+        "brand_names": ["Neurontin", "Gralise"],
+        "category": "Anticonvulsant/Analgesic",
+        "common_uses": ["Neuropathic pain", "Anxiety", "Seizures"],
+        "typical_dosage": "5-10 mg/kg every 8-12 hours",
+        "side_effects": ["Sedation", "Ataxia", "Dizziness"],
+        "contraindications": ["Kidney disease (dose adjustment needed)"]
+      },
+      {
+        "name": "Buprenorphine",
+        "brand_names": ["Simbadol", "Buprenex"],
+        "category": "Opioid analgesic",
+        "common_uses": ["Moderate to severe pain", "Post-surgical pain"],
+        "typical_dosage": "0.01-0.03 mg/kg every 8-12 hours",
+        "side_effects": ["Sedation", "Respiratory depression", "Nausea"],
+        "contraindications": ["Respiratory depression", "Severe liver disease"]
+      }
+    ]
+  }
+} 
