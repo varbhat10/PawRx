@@ -257,8 +257,8 @@ const CalendarModule = ({ pets }) => {
               </button>
               
               {showPastAppointments && (
-                <div className="mt-3 space-y-2">
-                  {pastAppointments.slice(0, 5).map((apt, index) => (
+                <div className="mt-3 max-h-60 overflow-y-auto space-y-2 pr-2" style={{scrollbarWidth: 'thin', scrollbarColor: '#d1d5db #f3f4f6'}}>
+                  {pastAppointments.map((apt, index) => (
                     <div key={index} className="flex items-center p-2 bg-gray-50 rounded-lg opacity-75">
                       {apt.petPhoto ? (
                         <img
