@@ -70,8 +70,14 @@ const CalendarModule = ({ pets }) => {
 
   const hasAppointment = (date) => {
     return appointments.some(apt => {
+      // Only count scheduled appointments, not cancelled ones
+      if (apt.status === 'cancelled') return false;
+      
       const aptDate = new Date(apt.date);
-      return aptDate.toDateString() === date.toDateString();
+      // Use same date comparison as getDateAppointments
+      return aptDate.getFullYear() === date.getFullYear() &&
+             aptDate.getMonth() === date.getMonth() &&
+             aptDate.getDate() === date.getDate();
     });
   };
 
@@ -220,7 +226,7 @@ const CalendarModule = ({ pets }) => {
                     <p className="text-sm font-medium text-gray-900">{apt.petName}</p>
                     <p className="text-xs text-gray-600">{apt.type || 'Check-up'}</p>
                     <p className="text-xs text-gray-500">
-                      {new Date(apt.date).toLocaleDateString()} at {apt.time || '10:00 AM'}
+                      {new Date(apt.date + (apt.date.includes('T') ? '' : 'T12:00:00')).toLocaleDateString()} at {apt.time || '10:00 AM'}
                     </p>
                   </div>
                   <div className="text-right">
@@ -269,7 +275,7 @@ const CalendarModule = ({ pets }) => {
                         <p className="text-xs font-medium text-gray-700">{apt.petName}</p>
                         <p className="text-xs text-gray-500">{apt.type || 'Check-up'}</p>
                         <p className="text-xs text-gray-400">
-                          {new Date(apt.date).toLocaleDateString()}
+                          {new Date(apt.date + (apt.date.includes('T') ? '' : 'T12:00:00')).toLocaleDateString()}
                         </p>
                       </div>
                       <div className="text-right">
@@ -323,13 +329,14 @@ const ScheduleModal = ({ onClose, selectedDate, pets, onSuccess }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Fix timezone issue - create date without timezone conversion
-      const [year, month, day] = formData.date.split('-');
-      const [hours, minutes] = (formData.time || '12:00').split(':');
-      const localDate = new Date(year, month - 1, day, hours, minutes);
+      // Create date that won't shift when stored as UTC
+      const localDate = new Date(formData.date + 'T12:00:00');
+      // Adjust for timezone offset to keep the same date when stored as UTC
+      const timezoneOffset = localDate.getTimezoneOffset() * 60000;
+      const adjustedDate = new Date(localDate.getTime() + timezoneOffset);
       
       const appointmentData = {
-        date: localDate.toISOString(),
+        date: adjustedDate.toISOString(),
         time: formData.time,
         type: formData.type,
         veterinarian: formData.veterinarian,
