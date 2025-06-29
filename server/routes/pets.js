@@ -462,7 +462,16 @@ router.post('/:id/appointments', protect, async (req, res) => {
       return res.status(404).json({ success: false, message: 'Pet not found' });
     }
 
-    pet.appointments.push(appointmentData);
+    // Fix data mismatch issues
+    const processedData = {
+      ...appointmentData,
+      // Add required title field if missing
+      title: appointmentData.title || `${appointmentData.type} appointment`,
+      // Fix type enum values
+      type: appointmentData.type === 'check-up' ? 'checkup' : appointmentData.type
+    };
+
+    pet.appointments.push(processedData);
     await pet.save();
 
     res.json({ 
@@ -472,7 +481,7 @@ router.post('/:id/appointments', protect, async (req, res) => {
     });
   } catch (error) {
     console.error('Error adding appointment:', error);
-    res.status(500).json({ success: false, message: 'Server error' });
+    res.status(500).json({ success: false, message: 'Server error', details: error.message });
   }
 });
 

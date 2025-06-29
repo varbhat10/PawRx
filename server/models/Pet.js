@@ -20,19 +20,19 @@ const AppointmentSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ['checkup', 'vaccination', 'surgery', 'grooming', 'dental', 'emergency', 'other']
+    enum: ['check-up', 'checkup', 'vaccination', 'surgery', 'grooming', 'dental', 'emergency', 'other']
   },
   title: {
     type: String,
-    required: true
+    required: false // Made optional to fix frontend mismatch
   },
   date: {
     type: Date,
     required: true
   },
   time: String,
-  veterinarian: String,
-  clinic: String,
+  veterinarian: String, // Optional - not everyone knows their vet when booking
+  clinic: String, // Optional - clinic info
   address: String,
   phone: String,
   notes: String,

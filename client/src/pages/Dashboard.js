@@ -411,24 +411,24 @@ const ScheduleModal = ({ onClose, selectedDate, pets, onSuccess }) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Veterinarian</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Veterinarian (Optional)</label>
               <input
                 type="text"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={formData.veterinarian}
                 onChange={(e) => setFormData({...formData, veterinarian: e.target.value})}
-                placeholder="Dr. Smith"
+                placeholder="Dr. Smith (leave blank if unknown)"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Clinic/Hospital</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Clinic/Hospital (Optional)</label>
               <input
                 type="text"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={formData.clinic}
                 onChange={(e) => setFormData({...formData, clinic: e.target.value})}
-                placeholder="Pet Care Clinic"
+                placeholder="Pet Care Clinic (leave blank if unknown)"
               />
             </div>
 
