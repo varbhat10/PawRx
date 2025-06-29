@@ -78,7 +78,10 @@ const CalendarModule = ({ pets }) => {
   const getDateAppointments = (date) => {
     return appointments.filter(apt => {
       const aptDate = new Date(apt.date);
-      return aptDate.toDateString() === date.toDateString();
+      // Compare date parts separately to avoid timezone issues
+      return aptDate.getFullYear() === date.getFullYear() &&
+             aptDate.getMonth() === date.getMonth() &&
+             aptDate.getDate() === date.getDate();
     });
   };
 
@@ -320,8 +323,13 @@ const ScheduleModal = ({ onClose, selectedDate, pets, onSuccess }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // Fix timezone issue - create date without timezone conversion
+      const [year, month, day] = formData.date.split('-');
+      const [hours, minutes] = (formData.time || '12:00').split(':');
+      const localDate = new Date(year, month - 1, day, hours, minutes);
+      
       const appointmentData = {
-        date: formData.date,
+        date: localDate.toISOString(),
         time: formData.time,
         type: formData.type,
         veterinarian: formData.veterinarian,
