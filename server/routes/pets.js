@@ -457,7 +457,7 @@ router.post('/:id/appointments', protect, async (req, res) => {
     const petId = req.params.id;
     const appointmentData = req.body;
 
-    const pet = await Pet.findOne({ _id: petId, owner: req.user.id });
+    const pet = await Pet.findOne({ _id: petId, owner: req.user._id });
     if (!pet) {
       return res.status(404).json({ success: false, message: 'Pet not found' });
     }
@@ -482,7 +482,7 @@ router.put('/:id/appointments/:appointmentId', protect, async (req, res) => {
     const { id: petId, appointmentId } = req.params;
     const { status } = req.body;
 
-    const pet = await Pet.findOne({ _id: petId, owner: req.user.id });
+    const pet = await Pet.findOne({ _id: petId, owner: req.user._id });
     if (!pet) {
       return res.status(404).json({ success: false, message: 'Pet not found' });
     }
@@ -511,7 +511,7 @@ router.get('/:id/appointments', protect, async (req, res) => {
   try {
     const petId = req.params.id;
 
-    const pet = await Pet.findOne({ _id: petId, owner: req.user.id });
+    const pet = await Pet.findOne({ _id: petId, owner: req.user._id });
     if (!pet) {
       return res.status(404).json({ success: false, message: 'Pet not found' });
     }
