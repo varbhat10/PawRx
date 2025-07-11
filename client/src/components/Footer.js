@@ -30,17 +30,6 @@ const Footer = ({ className = '', fixed = false }) => {
                 © {currentYear} <span className="font-semibold text-gray-800">Varun Bhat</span>. All rights reserved.
               </span>
             </div>
-            <div className="flex items-center justify-center md:justify-start space-x-2">
-              <span className="text-xs text-gray-500">•</span>
-              <a 
-                href="https://opensource.org/licenses/MIT" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-sm text-blue-600 hover:text-blue-800 transition-colors duration-200"
-              >
-                MIT License
-              </a>
-            </div>
           </div>
 
           {/* Center - Brand/App Info */}

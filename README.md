@@ -56,7 +56,7 @@ PawRx addresses the critical need for pet medication safety by providing a centr
 ### Infrastructure
 - **Docker** - Containerization
 - **Railway** - Cloud deployment
-- **GitHub Pages** - Frontend hosting
+- **Static Hosting** - Frontend hosting
 
 ## Project Structure
 
@@ -87,14 +87,12 @@ pawrx/
 - Node.js (v16 or higher)
 - Python (v3.8 or higher)
 - MongoDB (local or cloud instance)
-- Git
 
 ### Local Development
 
-1. **Clone the repository**
+1. **Project Setup**
 ```bash
-git clone https://github.com/varbhat10/PawRx.git
-cd PawRx
+# Set up the project directory structure as shown above
 ```
 
 2. **Install dependencies**
@@ -200,7 +198,7 @@ python -m pytest
 ## Deployment
 
 The application is deployed using:
-- **Frontend**: GitHub Pages for static hosting
+- **Frontend**: Static hosting for frontend assets
 - **Backend**: Railway platform for API services
 - **Database**: MongoDB Atlas cloud database
 - **ML Service**: Railway Python deployment
@@ -237,8 +235,7 @@ This project demonstrates proficiency in:
 For technical questions or collaboration opportunities:
 - **Email**: varbhat10@gmail.com
 - **LinkedIn**: [Varun Bhat](https://linkedin.com/in/varbhat10)
-- **Portfolio**: [GitHub Profile](https://github.com/varbhat10)
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is proprietary software. All rights reserved.

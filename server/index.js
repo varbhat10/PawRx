@@ -31,8 +31,6 @@ app.use(limiter);
 
 // CORS - Support multiple origins with secure configuration
 const allowedOrigins = [
-  'https://varbhat10.github.io',
-  'https://varbhat10.github.io/PawRx',
   'https://pawrx-production.up.railway.app', 
   'http://localhost:3000',
   'http://localhost:3001'

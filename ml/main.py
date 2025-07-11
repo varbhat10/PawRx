@@ -37,7 +37,6 @@ app = FastAPI(
 #     allow_origins=[
 #         "http://localhost:3000", 
 #         "http://localhost:5000", 
-#         "https://varbhat10.github.io",
 #         "https://pawrx-production-5c30.up.railway.app",
 #         "https://pawrx-ml-production.up.railway.app"
 #     ],

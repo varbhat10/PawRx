@@ -317,7 +317,7 @@ const Landing = () => {
                  Smart pet medication management created by <a href="https://www.linkedin.com/in/varun-bhat-osu/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Varun Bhat, Veterinary Technician</a>. Built with real veterinary experience to keep your pets safe and healthy.
                </p>
                <p className="text-sm text-gray-500">
-                 © 2025 Varun Bhat. Open source under MIT License.
+                 © 2025 Varun Bhat. All rights reserved.
                </p>
              </div>
             
@@ -330,10 +330,10 @@ const Landing = () => {
             </div>
             
             <div>
-              <h3 className="font-semibold mb-4">Open Source</h3>
+              <h3 className="font-semibold mb-4">Support</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="https://github.com/varbhat10/PawRx" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub Repository</a></li>
-                <li><a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">MIT License</a></li>
+                <li><button onClick={() => navigate('/contact-support')} className="hover:text-white transition-colors">Contact Support</button></li>
+                <li><span className="text-gray-500">Help Documentation</span></li>
               </ul>
             </div>
           </div>

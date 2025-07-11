@@ -476,14 +476,14 @@ const PetProfile = () => {
                     <div className="text-2xl font-bold text-yellow-600">{adverseReactions.length}</div>
                     <div className="text-sm text-yellow-600">Adverse Reactions</div>
                   </div>
-                  <div className="text-center p-4 bg-green-50 rounded-lg">
-                    <ChartBarIcon className="h-8 w-8 text-green-600 mx-auto mb-2" />
-                    <div className="text-2xl font-bold text-green-600">
+                  <div className="text-center p-4 bg-red-50 rounded-lg">
+                    <ChartBarIcon className="h-8 w-8 text-red-600 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-red-600">
                       {(pet.medicalHistory?.vaccinations?.length || 0) + 
                        (pet.medicalHistory?.allergies?.length || 0) + 
                        (pet.medicalHistory?.chronicConditions?.length || 0)}
                     </div>
-                    <div className="text-sm text-green-600">Medical Records</div>
+                    <div className="text-sm text-red-600">Health History Alerts</div>
                   </div>
                 </div>
 

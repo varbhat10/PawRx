@@ -68,10 +68,11 @@ ENVIRONMENT=production
 
 ### 3. Frontend Build Environment
 
-For GitHub Pages deployment, create `client/.env.production`:
+For production deployment, create `client/.env.production`:
 
 ```bash
-REACT_APP_API_BASE_URL=https://pawrx-production.up.railway.app
+REACT_APP_API_URL=https://pawrx-production.up.railway.app/api
+REACT_APP_ML_URL=https://pawrx-ml-production.up.railway.app
 ```
 
 ## Security Best Practices Applied
@@ -153,7 +154,7 @@ node -e "console.log(require('crypto').randomBytes(64).toString('base64'))"
 ## Production Deployment URLs
 
 After configuration:
-- **Frontend**: https://varbhat10.github.io/PawRx/
+- **Frontend**: https://pawrx-frontend.up.railway.app/
 - **Backend API**: https://pawrx-production.up.railway.app
 - **ML Service**: https://pawrx-ml-production.up.railway.app
 - **Database**: MongoDB Atlas (hidden in environment variables) 

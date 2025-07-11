@@ -61,7 +61,7 @@ Check your Railway projects have these set:
 After redeploying frontend:
 
 1. **Test Authentication**: 
-   - Go to https://varbhat10.github.io/PawRx/
+   - Go to https://pawrx-frontend.up.railway.app/
    - Try logging in with demo account
    - Check browser developer tools for any CORS errors
 
@@ -100,7 +100,7 @@ After redeploying frontend:
 ## 🧪 **Testing Checklist**
 
 After redeployment, verify:
-- [ ] Can access https://varbhat10.github.io/PawRx/
+- [ ] Can access https://pawrx-frontend.up.railway.app/
 - [ ] Login works with demo account (user@demo.com / password123)
 - [ ] Can create/view pet profiles
 - [ ] Interaction checker functions correctly
