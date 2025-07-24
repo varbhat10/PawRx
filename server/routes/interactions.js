@@ -3,6 +3,7 @@ const router = express.Router();
 const Pet = require('../models/Pet');
 const Interaction = require('../models/Interaction');
 const { protect, petOwnerOrVet } = require('../middleware/auth');
+const { petAccessLimiter } = require('../middleware/security');
 const { sendCriticalInteractionAlert } = require('../utils/email');
 const axios = require('axios');
 const fs = require('fs').promises;
@@ -11,7 +12,7 @@ const path = require('path');
 // @desc    Check drug interactions for a pet
 // @route   POST /api/interactions/check
 // @access  Private
-router.post('/check', protect, async (req, res) => {
+router.post('/check', petAccessLimiter, protect, async (req, res) => {
   try {
     const { petId, medications } = req.body;
 
@@ -169,7 +170,7 @@ router.post('/check', protect, async (req, res) => {
 // @desc    Get AI-powered medication analysis
 // @route   POST /api/interactions/ai-analysis
 // @access  Private
-router.post('/ai-analysis', protect, async (req, res) => {
+router.post('/ai-analysis', petAccessLimiter, protect, async (req, res) => {
   try {
     const { petId, medications, query } = req.body;
 
