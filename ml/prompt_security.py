@@ -39,19 +39,19 @@ class PromptSecurityFilter:
             r'(?i)\bsudo\s+\w+',
             r'(?i)\broot\s+access\b',
             
-            # Output manipulation
-            r'(?i)\bstart\s+your\s+response\s+with\b',
-            r'(?i)\bend\s+your\s+response\s+with\b',
-            r'(?i)\bonly\s+respond\s+with\b',
-            r'(?i)\bdon\'?t\s+(mention|include|say)\b',
-            r'(?i)\bstop\s+being\s+(a\s+)?(veterinary|medical)\b',
+            # Output manipulation (more specific patterns)
+            r'(?i)\bstart\s+your\s+response\s+with\s+["\']',
+            r'(?i)\bend\s+your\s+response\s+with\s+["\']',
+            r'(?i)\bonly\s+respond\s+with\s+(a\s+)?(single\s+)?(word|number|yes|no)\b',
+            r'(?i)\bdon\'?t\s+(mention|include|say)\s+(anything|this|that)\s+(about|regarding)',
+            r'(?i)\bstop\s+being\s+(a\s+)?(veterinary|medical)\s+(expert|professional)\b',
             
-            # Jailbreak attempts
+            # Jailbreak attempts (more specific)
             r'(?i)\bjailbreak\b',
             r'(?i)\bDAN\s+(mode|activated)\b',
-            r'(?i)\bhypothetically\b.*\bwhat\s+if\b',
-            r'(?i)\bin\s+a\s+fictional\s+world\b',
-            r'(?i)\bfor\s+educational\s+purposes\b.*\bhow\s+to\b',
+            r'(?i)\bhypothetically\b.*\bignore\s+(all|previous|instructions?)\b',
+            r'(?i)\bin\s+a\s+fictional\s+world\s+where\s+you\s+(are|can)\b',
+            r'(?i)\bfor\s+educational\s+purposes\b.*\bhow\s+to\s+(hack|exploit|bomb)\b',
             
             # Code injection attempts
             r'(?i)```\s*(python|javascript|html|sql)',
@@ -67,13 +67,21 @@ class PromptSecurityFilter:
         
         # Medical terms that should be allowed (whitelist approach)
         self.medical_whitelist_patterns = [
-            r'\b\d+\s*(mg|ml|g|kg|lb|lbs|pounds?)\b',  # Dosages
-            r'\b(twice|once|three\s+times?)\s+(daily|a\s+day|per\s+day)\b',  # Frequencies
-            r'\b(oral|topical|injection|IV|intramuscular)\b',  # Routes
-            r'\b(morning|evening|noon|bedtime)\b',  # Timing
-            r'\b(with|without)\s+food\b',  # Administration
-            r'\b(dog|cat|bird|rabbit|hamster|guinea\s+pig)\b',  # Species
-            r'\b(labrador|retriever|siamese|persian|tabby)\b'  # Breeds
+            r'\b\d+\s*(mg|ml|g|kg|lb|lbs|pounds?|mcg|units?|iu)\b',  # Dosages
+            r'\b(twice|once|three\s+times?|every\s+\d+\s+hours?)\s+(daily|a\s+day|per\s+day)\b',  # Frequencies
+            r'\b(oral|topical|injection|IV|intramuscular|subcutaneous|sublingual)\b',  # Routes
+            r'\b(morning|evening|noon|bedtime|before\s+meals?|after\s+meals?)\b',  # Timing
+            r'\b(with|without)\s+(food|meals?)\b',  # Administration
+            r'\b(dog|cat|bird|rabbit|hamster|guinea\s+pig|ferret|reptile|fish)\b',  # Species
+            r'\b(labrador|retriever|siamese|persian|tabby|poodle|bulldog)\b',  # Breeds
+            r'\b(medication|medicine|drug|tablet|pill|capsule|liquid|drops?)\b',  # Medication forms
+            r'\b(vet|veterinarian|veterinary|animal|pet|puppy|kitten)\b',  # Veterinary terms
+            r'\b(side\s+effects?|adverse\s+reactions?|interactions?|allergies|allergy)\b',  # Safety terms
+            r'\b(dosage|dose|frequency|administration|treatment|therapy)\b',  # Treatment terms
+            r'\b(prescription|over\s+the\s+counter|otc|generic|brand)\b',  # Medication types
+            r'\b(symptoms?|condition|illness|disease|disorder|syndrome)\b',  # Medical conditions
+            r'\b(analyze|check|review|assess|evaluate|compare)\b',  # Analysis terms
+            r'\b(safe|safety|dangerous|toxic|poisonous|contraindicated)\b'  # Safety terms
         ]
         
         # Maximum lengths for different input types
@@ -153,16 +161,17 @@ class PromptSecurityFilter:
             })
             risk_score += 2
         
-        # Determine risk level
-        if risk_score >= 15:
+        # Determine risk level - be more permissive for veterinary use
+        if risk_score >= 20:  # Increased threshold
             risk_level = RiskLevel.CRITICAL
-        elif risk_score >= 10:
+        elif risk_score >= 15:  # Increased threshold
             risk_level = RiskLevel.HIGH
-        elif risk_score >= 5:
+        elif risk_score >= 8:   # Increased threshold
             risk_level = RiskLevel.MEDIUM
         else:
             risk_level = RiskLevel.LOW
         
+        # Only block CRITICAL and HIGH risk - allow MEDIUM for veterinary context
         is_safe = risk_level in [RiskLevel.LOW, RiskLevel.MEDIUM]
         
         return {
@@ -214,10 +223,29 @@ class PromptSecurityFilter:
             if re.search(pattern, input_text, re.IGNORECASE):
                 medical_indicators += 1
         
-        # Require at least some medical context
+        # Be more lenient - only flag as non-medical if text is long AND has clear non-medical indicators
         text_length = len(input_text.split())
-        if text_length > 10 and medical_indicators == 0:
-            logger.warning("Input lacks medical context indicators")
+        
+        # Check for clearly non-medical content
+        non_medical_patterns = [
+            r'\b(politics|election|government|democracy)\b',
+            r'\b(weather|climate|temperature)\b',
+            r'\b(sports|football|basketball|soccer)\b',
+            r'\b(programming|coding|software|computer)\b',
+            r'\b(movie|film|entertainment|celebrity)\b',
+            r'\b(cooking|recipe|restaurant|food)\b(?!.*\bpet\b)',  # Allow food-related if about pets
+            r'\b(bomb|explosive|weapon|violence)\b',
+            r'\b(cryptocurrency|bitcoin|investment|stock)\b'
+        ]
+        
+        non_medical_indicators = 0
+        for pattern in non_medical_patterns:
+            if re.search(pattern, input_text, re.IGNORECASE):
+                non_medical_indicators += 1
+        
+        # Only reject if clearly non-medical AND long text with no medical context
+        if text_length > 15 and medical_indicators == 0 and non_medical_indicators > 0:
+            logger.warning("Input appears to be non-medical content")
             return False
         
         return True
@@ -229,18 +257,26 @@ class PromptSecurityFilter:
         if not response:
             return ""
         
-        # Remove any potential prompt leakage
-        sanitized = re.sub(r'(?i)(system\s+prompt|original\s+instruction|you\s+are\s+a\s+veterinary)', 
+        # Remove any potential prompt leakage (be more specific to avoid false positives)
+        sanitized = re.sub(r'(?i)\b(system\s+prompt|original\s+instruction)\b', 
                           '[FILTERED]', response)
         
         # Remove any code blocks that might have been injected
         sanitized = re.sub(r'```.*?```', '[CODE_BLOCK_FILTERED]', sanitized, flags=re.DOTALL)
         
-        # Ensure response stays within medical domain
-        if not self.validate_medical_context(sanitized):
-            logger.warning("AI response filtered due to non-medical content")
-            return "I can only provide information about pet medication safety. Please rephrase your question about your pet's medications."
+        # Only filter response if it contains clearly malicious content
+        malicious_patterns = [
+            r'(?i)\b(ignore\s+all|forget\s+everything|new\s+instructions?)\b',
+            r'(?i)\b(jailbreak|DAN\s+mode|system\s+override)\b',
+            r'(?i)\b(hack|exploit|malicious|unauthorized)\b',
+        ]
         
+        for pattern in malicious_patterns:
+            if re.search(pattern, sanitized):
+                logger.warning("AI response filtered due to malicious content patterns")
+                return "I can only provide information about pet medication safety. Please rephrase your question about your pet's medications."
+        
+        # Don't validate medical context for responses - let AI respond naturally
         return sanitized
 
 # Global security filter instance
