@@ -17,7 +17,7 @@ const Landing = () => {
 
   const features = [
     {
-      icon: () => <span className="text-3xl">💊</span>,
+      icon: HeartIcon,
       title: "Medication Management",
       description: "Track current medications, dosages, frequencies, and schedules for all your pets in one secure place."
     },

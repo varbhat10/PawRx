@@ -10,7 +10,8 @@ import {
   ClockIcon,
   CheckCircleIcon,
   XMarkIcon,
-  CalendarDaysIcon
+  CalendarDaysIcon,
+  HeartIcon
 } from '@heroicons/react/24/outline';
 
 const Medications = () => {
@@ -456,7 +457,7 @@ const Medications = () => {
             <div className="text-center mb-12">
                               <div className="flex justify-center mb-6">
                   <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                    <span className="text-3xl">💊</span>
+                    <HeartIcon className="h-8 w-8 text-blue-600" />
                   </div>
                 </div>
               <h1 className="text-4xl font-bold text-gray-900 mb-4">Pet Medication Management</h1>
@@ -678,7 +679,7 @@ const Medications = () => {
               <div className="space-y-4">
                 {currentMedications.length === 0 ? (
                                       <div className="text-center py-12 bg-white rounded-lg border border-gray-200">
-                      <div className="text-6xl mb-4">💊</div>
+                      <HeartIcon className="h-16 w-16 text-gray-400 mx-auto mb-4" />
                       <p className="text-gray-500 mb-4">No current medications for {selectedPetData?.name}</p>
                     <button
                       onClick={openAddModal}

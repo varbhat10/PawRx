@@ -259,7 +259,7 @@ const sendContactSupportEmail = async (supportData) => {
       bug: '🐛',
       feature: '💡',
       account: '👤',
-      medication: '💊',
+              medication: '❤️',
       emergency: '🚨'
     };
 

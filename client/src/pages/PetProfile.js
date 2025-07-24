@@ -467,7 +467,7 @@ const PetProfile = () => {
                 {/* Quick Stats */}
                                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="text-center p-4 bg-blue-50 rounded-lg">
-                      <div className="text-3xl mb-2">💊</div>
+                      <HeartIcon className="h-8 w-8 text-blue-600 mx-auto mb-2" />
                       <div className="text-2xl font-bold text-blue-600">{currentMedications.length}</div>
                       <div className="text-sm text-blue-600">Current Medications</div>
                     </div>
@@ -493,7 +493,7 @@ const PetProfile = () => {
                   <div className="space-y-3">
                                           {currentMedications.slice(0, 3).map((medication) => (
                         <div key={medication._id} className="flex items-center p-3 bg-gray-50 rounded-lg">
-                          <span className="text-xl mr-3">💊</span>
+                          <HeartIcon className="h-5 w-5 text-gray-600 mr-3" />
                           <div className="flex-1">
                           <div className="font-medium text-gray-900">{medication.name}</div>
                           <div className="text-sm text-gray-500">{medication.dosage} - {medication.frequency}</div>
@@ -531,7 +531,7 @@ const PetProfile = () => {
               <div className="space-y-4">
                                   {currentMedications.length === 0 ? (
                     <div className="text-center py-12">
-                      <div className="text-6xl mb-4">💊</div>
+                      <HeartIcon className="h-16 w-16 text-gray-400 mx-auto mb-4" />
                       <p className="text-gray-500">No current medications</p>
                     <button
                       onClick={() => navigate('/medications')}
