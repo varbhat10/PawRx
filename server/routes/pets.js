@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Pet = require('../models/Pet');
 const { protect, petOwnerOrVet } = require('../middleware/auth');
+const { petAccessLimiter, petModificationLimiter } = require('../middleware/security');
 const Joi = require('joi');
 
 // Validation schema for pet creation
@@ -74,7 +75,7 @@ router.get('/', protect, async (req, res) => {
 // @desc    Get single pet
 // @route   GET /api/pets/:id
 // @access  Private
-router.get('/:id', protect, petOwnerOrVet, async (req, res) => {
+router.get('/:id', petAccessLimiter, protect, petOwnerOrVet, async (req, res) => {
   try {
     res.status(200).json({
       success: true,
@@ -127,7 +128,7 @@ router.post('/', protect, async (req, res) => {
 // @desc    Update pet
 // @route   PUT /api/pets/:id
 // @access  Private
-router.put('/:id', protect, petOwnerOrVet, async (req, res) => {
+router.put('/:id', petModificationLimiter, protect, petOwnerOrVet, async (req, res) => {
   try {
     // Only allow certain fields to be updated
     const allowedFields = [
@@ -168,7 +169,7 @@ router.put('/:id', protect, petOwnerOrVet, async (req, res) => {
 // @desc    Delete pet (hard delete)
 // @route   DELETE /api/pets/:id
 // @access  Private
-router.delete('/:id', protect, petOwnerOrVet, async (req, res) => {
+router.delete('/:id', petModificationLimiter, protect, petOwnerOrVet, async (req, res) => {
   try {
     // Check if permanent deletion is requested
     const { permanent } = req.query;
@@ -202,7 +203,7 @@ router.delete('/:id', protect, petOwnerOrVet, async (req, res) => {
 // @desc    Get pet's medication dashboard
 // @route   GET /api/pets/:id/dashboard
 // @access  Private
-router.get('/:id/dashboard', protect, petOwnerOrVet, async (req, res) => {
+router.get('/:id/dashboard', petAccessLimiter, protect, petOwnerOrVet, async (req, res) => {
   try {
     const pet = req.pet;
     
@@ -452,15 +453,10 @@ router.post('/:id/reactions', protect, petOwnerOrVet, async (req, res) => {
 });
 
 // Add appointment to pet
-router.post('/:id/appointments', protect, async (req, res) => {
+router.post('/:id/appointments', protect, petOwnerOrVet, async (req, res) => {
   try {
-    const petId = req.params.id;
     const appointmentData = req.body;
-
-    const pet = await Pet.findOne({ _id: petId, owner: req.user._id });
-    if (!pet) {
-      return res.status(404).json({ success: false, message: 'Pet not found' });
-    }
+    const pet = req.pet;  // Use pet from middleware instead of manual lookup
 
     // Fix data mismatch issues
     const processedData = {
@@ -486,15 +482,11 @@ router.post('/:id/appointments', protect, async (req, res) => {
 });
 
 // Update appointment status
-router.put('/:id/appointments/:appointmentId', protect, async (req, res) => {
+router.put('/:id/appointments/:appointmentId', protect, petOwnerOrVet, async (req, res) => {
   try {
-    const { id: petId, appointmentId } = req.params;
+    const { appointmentId } = req.params;
     const { status } = req.body;
-
-    const pet = await Pet.findOne({ _id: petId, owner: req.user._id });
-    if (!pet) {
-      return res.status(404).json({ success: false, message: 'Pet not found' });
-    }
+    const pet = req.pet;  // Use pet from middleware
 
     const appointment = pet.appointments.id(appointmentId);
     if (!appointment) {
@@ -516,14 +508,9 @@ router.put('/:id/appointments/:appointmentId', protect, async (req, res) => {
 });
 
 // Get pet appointments
-router.get('/:id/appointments', protect, async (req, res) => {
+router.get('/:id/appointments', protect, petOwnerOrVet, async (req, res) => {
   try {
-    const petId = req.params.id;
-
-    const pet = await Pet.findOne({ _id: petId, owner: req.user._id });
-    if (!pet) {
-      return res.status(404).json({ success: false, message: 'Pet not found' });
-    }
+    const pet = req.pet;  // Use pet from middleware
 
     res.json({ 
       success: true, 
