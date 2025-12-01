@@ -19,7 +19,7 @@ const contactSchema = Joi.object({
     'medication',
     'emergency'
   ).required(),
-  message: Joi.string().min(10).max(5000).required(),
+  message: Joi.string().min(5).max(5000).required(),
   urgent: Joi.boolean().default(false)
 });
 
