@@ -1,6 +1,6 @@
 # PawRx - Pet Medication Safety Platform
 
-A full-stack web application for pet medication tracking and drug interaction monitoring. Built as a capstone project demonstrating modern web development practices and database design.
+A full-stack web application for pet medication tracking and drug interaction monitoring. Initially build for personal use, evolving into a public product.
 
 ## Overview
 
@@ -81,60 +81,9 @@ pawrx/
 └── docker/                 # Docker configuration files
 ```
 
-## Installation and Setup
-
-### Prerequisites
-- Node.js (v16 or higher)
-- Python (v3.8 or higher)
-- MongoDB (local or cloud instance)
-
-### Local Development
-
-1. **Project Setup**
-```bash
-# Set up the project directory structure as shown above
-```
-
-2. **Install dependencies**
-```bash
-# Backend dependencies
-cd server
-npm install
-
-# Frontend dependencies
-cd ../client
-npm install
-
-# ML service dependencies
-cd ../ml
-pip install -r requirements.txt
-```
-
-3. **Environment configuration**
-Create `.env` files in `server/` and `ml/` directories with required environment variables.
-
-4. **Start services**
-```bash
-# Start MongoDB (if running locally)
-mongod
-
-# Start backend API (port 5000)
-cd server
-npm start
-
-# Start frontend development server (port 3000)
-cd client
-npm start
-
-# Start ML service (port 8000)
-cd ml
-uvicorn main:app --reload
-```
 
 ### Demo Access
-- Pet Owner Account: `user@demo.com` / `password123`
-- Veterinarian Account: `vet@demo.com` / `password123`
-
+- Populate demo login credentials by clicking Pet Owner Demo button on login screen. 
 ## API Documentation
 
 ### Authentication Endpoints
@@ -197,44 +146,11 @@ python -m pytest
 
 ## Deployment
 
-The application is deployed using:
 - **Frontend**: Static hosting for frontend assets
 - **Backend**: Railway platform for API services
 - **Database**: MongoDB Atlas cloud database
 - **ML Service**: Railway Python deployment
 
-## Development Learnings
-
-This project demonstrates proficiency in:
-- Full-stack web development with modern JavaScript frameworks
-- RESTful API design and implementation
-- Database modeling and optimization
-- User authentication and authorization
-- Real-time data processing and validation
-- Cloud deployment and DevOps practices
-- Machine learning integration
-- Security best practices
-
-## Future Enhancements
-
-- Mobile application development (React Native)
-- Integration with veterinary practice management systems
-- Advanced analytics and predictive modeling
-- Multi-language internationalization
-- Pharmacy integration for prescription management
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Implement changes with appropriate tests
-4. Submit a pull request with detailed description
-
-## Technical Contact
-
-For technical questions or collaboration opportunities:
-- **Email**: varbhat10@gmail.com
-- **LinkedIn**: [Varun Bhat](https://linkedin.com/in/varbhat10)
 
 ## License
 
