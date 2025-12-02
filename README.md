@@ -81,7 +81,6 @@ pawrx/
 └── docker/                 # Docker configuration files
 ```
 
-
 ### Demo Access
 - Populate demo login credentials by clicking Pet Owner Demo button on login screen. 
 ## API Documentation
@@ -127,22 +126,6 @@ The application uses MongoDB with the following key collections:
 - Input validation and sanitization
 - CORS configuration for cross-origin requests
 - Environment variable protection for sensitive data
-
-## Testing Strategy
-
-```bash
-# Backend API tests
-cd server
-npm test
-
-# Frontend component tests
-cd client
-npm test
-
-# ML service tests
-cd ml
-python -m pytest
-```
 
 ## Deployment
 
